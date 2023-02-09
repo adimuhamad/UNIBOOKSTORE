@@ -2,7 +2,8 @@
 <html lang="en">
 
 <?php
-  include_once("config.php");
+  include_once("database/config.php");
+  $page = isset($_GET['page']) ? $_GET['page'] : 'admin';
   $result = mysqli_query($mysqli, "select a.*, b.* from buku a inner join penerbit b on a.id_penerbit=b.id_penerbit order by id_buku asc");
   $result2 = mysqli_query($mysqli, "select * from penerbit order by id_penerbit asc");
 ?>
@@ -17,21 +18,9 @@
 
 <body>
 
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="index">UNIBOOKSTORE</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
-          <a class="nav-link" aria-current="page" href="index">HOME</a>
-          <a class="nav-link" href="admin">ADMIN</a>
-          <a class="nav-link" href="pengadaan">PENGADAAN</a>
-        </div>
-      </div>
-    </div>
-  </nav>
+  <?php
+    include_once("layouts/navbar.php");
+  ?>
 
   <div class="container">
     <h3>Data Buku</h3>
@@ -46,20 +35,21 @@
           <th scope="col">Harga</th>
           <th scope="col">Stok</th>
           <th scope="col">Penerbit</th>
-          <th scope="col">Aksi</th>
+          <th scope="col" style="width: 15%">Aksi</th>
         </tr>
       </thead>
       <tbody>
         
       <?php
       $no = 1;
+      $fmt = new NumberFormatter('id_ID', NumberFormatter::CURRENCY);
       while($data = mysqli_fetch_array($result)) { ?>     
         <tr>
           <td><?php echo $no++; ?></td>
           <td><?php echo $data['id_buku']; ?></td>
           <td><?php echo $data['kategori']; ?></td>
           <td><?php echo $data['nama_buku']; ?></td>
-          <td><?php echo $data['harga']; ?></td>
+          <td><?php echo $fmt->formatCurrency($data['harga'], "IDR"); ?></td>
           <td><?php echo $data['stok']; ?></td>
           <td><?php echo $data['nama']; ?></td>
           <td>
@@ -82,7 +72,7 @@
           <th scope="col">Alamat</th>
           <th scope="col">Kota</th>
           <th scope="col">Telepon</th>
-          <th scope="col">Aksi</th>
+          <th scope="col" style="width: 15%">Aksi</th>
         </tr>
       </thead>
       <tbody>

@@ -1,6 +1,6 @@
 <?php 
 // koneksi database
-include 'config.php';
+include_once("database/config.php");
 
 // menangkap data id yang di kirim dari url
 $id_buku = $_GET['id_buku'];

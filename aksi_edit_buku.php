@@ -1,6 +1,6 @@
 <?php 
 // koneksi database
-include 'config.php';
+include_once("database/config.php");
 
 // menangkap data yang di kirim dari form
 $id_buku = $_POST['id_buku'];
