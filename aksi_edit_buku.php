@@ -1,6 +1,7 @@
-<?php 
+<?php
+
 // koneksi database
-include_once("database/config.php");
+require_once("database/config.php");
 
 // menangkap data yang di kirim dari form
 $id_buku = $_POST['id_buku'];
@@ -14,6 +15,6 @@ $stok = $_POST['stok'];
 mysqli_query($mysqli,"update buku set id_penerbit='$id_penerbit',kategori='$kategori',nama_buku='$nama_buku',harga='$harga',stok='$stok' where id_buku='$id_buku'");
 
 // mengalihkan halaman kembali ke index.php
-header("location:admin.php");
+header("location:buku.php");
 
 ?>

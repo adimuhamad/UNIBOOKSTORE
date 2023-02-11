@@ -1,6 +1,7 @@
-<?php 
+<?php
+
 // koneksi database
-include_once("database/config.php");
+require_once("database/config.php");
 
 // menangkap data id yang di kirim dari url
 $id_buku = $_GET['id_buku'];
@@ -9,6 +10,6 @@ $id_buku = $_GET['id_buku'];
 mysqli_query($mysqli,"delete from buku where id_buku='$id_buku'");
 
 // mengalihkan halaman kembali ke index.php
-header("location:admin.php");
+header("location:buku.php");
 
 ?>

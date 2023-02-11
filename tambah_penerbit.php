@@ -1,23 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="h-100">
 
 <?php
-  include_once("database/config.php");
+  require_once("database/config.php");
   $page = isset($_GET['page']) ? $_GET['page'] : 'admin';
+  $page2 = isset($_GET['page']) ? $_GET['page'] : 'admin';
 ?>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>UNIBOOKSTORE | TAMBAH BUKU</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" rel="stylesheet">
-</head>
-
-<body>
+<body class="d-flex flex-column h-100">
 
   <?php
-    include_once("layouts/navbar.php");
+    include("layouts/header.php");
+    include("layouts/navbar.php");
   ?>
 
   <div class="container">
@@ -47,9 +41,16 @@
         <input type="text" class="form-control" id="telepon" name="telepon" placeholder="Telepon" required>
       </div>
 
-      <button type="submit" class="btn btn-sm btn-success mb-5" value="Simpan"><i class="fa-solid fa-save"></i><b> Simpan</b></button>
+      <div class="mb-5">
+        <button type="submit" class="btn btn-sm btn-success" name="simpan" value="Simpan"><i class="fa-solid fa-save me-2"></i><b>Simpan</b></button>
+        <a href="penerbit" class="btn btn-sm btn-danger"><i class="fa-solid fa-close me-2"></i><b>Batal</b></a>
+      </div>
     </form>
   </div>
+
+  <?php
+    include("layouts/footer.php");
+  ?>
 
 </body>
 
