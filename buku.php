@@ -70,7 +70,6 @@
         [ 10, 25, 50, -1 ],
         [ '10 rows', '25 rows', '50 rows', 'All rows' ]
       ],
-      
       buttons: [
       'pageLength',
         { extend: 'excel',
@@ -78,18 +77,14 @@
           title: 'Data Buku',
           pageSize: 'A4',
           orientation: 'portrait',
-          exportOptions: {
-            columns: [ 0, 1, 2, 3, 4, 5, 6 ]
-          }
+          exportOptions: { columns: [ 0, 1, 2, 3, 4, 5, 6 ] }
         },
         { extend: 'pdf', 
           text: '<i class="fas fa-file-pdf me-2"></i>Export PDF',
           title: 'Data Buku',
           pageSize: 'A4',
           orientation: 'portrait',
-          exportOptions: {
-            columns: [ 0, 1, 2, 3, 4, 5, 6 ]
-          }
+          exportOptions: { columns: [ 0, 1, 2, 3, 4, 5, 6 ] }
         }
       ]
     } );
