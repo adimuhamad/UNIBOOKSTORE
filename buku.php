@@ -16,14 +16,21 @@
     include("layouts/navbar.php");
   ?>
 
+  <style>
+    .badge, .badge:hover {
+      text-decoration: none;
+      color: white;
+    }
+  </style>
+
   <div class="container">
     <h3>Data Buku</h3>
     <a class="btn btn-sm btn-primary mb-3" href="tambah_buku"><i class="fa-solid fa-plus"></i><b> Tambah Data</b></a>
-    <table class="table table-striped ">
+    <table class="table table-striped display" id="myTable">
       <thead class="table-dark">
         <tr>
           <th scope="col">No</th>
-          <th scope="col">ID Buku</th>
+          <th scope="col">ID</th>
           <th scope="col">Kategori</th>
           <th scope="col">Nama Buku</th>
           <th scope="col">Harga</th>
@@ -62,11 +69,38 @@
 
 </body>
 
-<style>
-  .badge, .badge:hover {
-    text-decoration: none;
-    color: white;
-  }
-</style>
+<script>
+  $(document).ready(function() {
+    $('#myTable').DataTable( {
+      dom: '<"row"<"col"B><"col"f>rt<"col"i><"col"p>>',
+      lengthMenu: [
+        [ 10, 25, 50, -1 ],
+        [ '10 rows', '25 rows', '50 rows', 'All rows' ]
+      ],
+      
+      buttons: [
+      'pageLength',
+        { extend: 'excel',
+          text: '<i class="fas fa-file-excel me-2"></i>Export Excel',
+          title: 'Data Buku',
+          pageSize: 'A4',
+          orientation: 'portrait',
+          exportOptions: {
+            columns: [ 0, 1, 2, 3, 4, 5, 6 ]
+          }
+        },
+        { extend: 'pdf', 
+          text: '<i class="fas fa-file-pdf me-2"></i>Export PDF',
+          title: 'Data Buku',
+          pageSize: 'A4',
+          orientation: 'portrait',
+          exportOptions: {
+            columns: [ 0, 1, 2, 3, 4, 5, 6 ]
+          }
+        }
+      ]
+    } );
+  } );
+</script>
 
 </html>

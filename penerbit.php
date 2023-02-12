@@ -23,7 +23,7 @@
       <thead class="table-dark">
         <tr>
           <th scope="col">No</th>
-          <th scope="col">ID Penerbit</th>
+          <th scope="col">ID</th>
           <th scope="col">Nama</th>
           <th scope="col">Alamat</th>
           <th scope="col">Kota</th>
