@@ -16,9 +16,9 @@
     include("layouts/navbar.php");
   ?>
 
-  <div class="container">
+  <div class="container mb-4">
     <h3>Data Penerbit</h3>
-    <a class="btn btn-sm btn-primary mb-3" href="tambah_penerbit"><i class="fa-solid fa-plus"></i><b> Tambah Data</b></a>
+    <a class="btn btn-sm btn-primary mb-2" href="tambah_penerbit"><i class="fa-solid fa-plus"></i><b> Tambah Data</b></a>
     <table class="table table-striped ">
       <thead class="table-dark">
         <tr>
@@ -58,12 +58,5 @@
   ?>
 
 </body>
-
-<style>
-  .badge, .badge:hover {
-    text-decoration: none;
-    color: white;
-  }
-</style>
 
 </html>
